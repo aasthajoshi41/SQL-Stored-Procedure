@@ -1,0 +1,133 @@
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    CreatedDate DATETIME
+);
+
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2),
+    Stock INT
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATETIME,
+    TotalAmount DECIMAL(10,2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT,
+    ProductID INT,
+    Quantity INT,
+    UnitPrice DECIMAL(10,2),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+-------------------------------------------------------------
+Write a stored procedure to insert a new customer.
+
+Write a stored procedure to update a customer's email.
+
+Write a stored procedure to delete a customer by ID.
+
+Write a stored procedure to retrieve all customers.
+
+Write a stored procedure to find customers created in the last 30 days.
+
+Write a stored procedure to insert a new product.
+
+Write a stored procedure to get all products below a given stock level.
+
+Write a stored procedure to update product price by ProductID.
+
+Write a stored procedure to retrieve all orders by a specific customer.
+
+Write a stored procedure to calculate total amount for an order using OrderDetails.
+
+Write a stored procedure to delete an order and its related order details.
+
+Write a stored procedure to fetch products in a specific category.
+
+Write a stored procedure to count the number of orders placed by a customer.
+
+Write a stored procedure to list top 5 products with highest stock.
+
+Write a stored procedure to get order history (order + details) for a customer.
+
+Write a stored procedure to check if a customer exists by email.
+
+Write a stored procedure to list orders placed in a specific date range.
+
+Write a stored procedure to get total number of customers.
+
+Write a stored procedure to retrieve the top N most expensive products.
+
+Write a stored procedure to update stock quantity after a new order.
+
+Write a stored procedure to apply a discount to products in a specific category.
+
+Write a stored procedure to get monthly sales totals for the current year.
+
+Write a stored procedure that accepts a category and returns average product price.
+
+Write a stored procedure to get customers who haven’t placed any orders.
+
+Write a stored procedure to return the best-selling product.
+
+Write a stored procedure to calculate revenue generated per product.
+
+Write a stored procedure to retrieve top 3 customers by total order value.
+
+Write a stored procedure to insert a new order with order details.
+
+Write a stored procedure to archive orders older than 2 years.
+
+Write a stored procedure to find orders with missing order details.
+
+Write a stored procedure to detect and return duplicate customer emails.
+
+Write a stored procedure to return products that were never ordered.
+
+Write a stored procedure to calculate average order value per month.
+
+Write a stored procedure to get all orders for products in a specific category.
+
+Write a stored procedure to generate a sales report by category.
+
+Write a stored procedure to get the customer with the highest order total.
+
+Write a stored procedure that returns order count by customer with more than 5 orders.
+
+Write a stored procedure to get top 5 most frequently ordered products.
+
+Write a stored procedure to track daily stock changes.
+
+Write a stored procedure that returns products where stock < average stock.
+
+Write a stored procedure that returns a dynamic pivot table showing sales per category per month.
+
+Write a stored procedure that performs bulk insert of products from a temporary staging table.
+
+Write a stored procedure that audits changes to the Products table (trigger + log table).
+
+Write a stored procedure that calculates reorder level dynamically based on past 3 months sales.
+
+Write a stored procedure to generate invoice (with order + customer + product details) in one result.
+
+Write a stored procedure that implements pagination for the Orders table (page size, number).
+
+Write a stored procedure that returns top 3 selling products per category.
+
+Write a stored procedure that validates all order details for consistency (e.g., price * quantity = subtotal).
+
+Write a stored procedure to simulate order placement: insert order, deduct stock, return receipt.
+
+Write a stored procedure to predict stockout dates based on order trends (requires historical order data).
